@@ -22,7 +22,7 @@ export class SetLocationPage {
 
   onSetMarker(event: any) {
     console.log(event);
-    this.marker = new Location(event.cords.lat, event.cords.lng);
+    this.marker = new Location(event.coords.lat, event.coords.lng);
   }
 
   onConfirm() {
