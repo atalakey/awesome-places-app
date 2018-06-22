@@ -19,6 +19,7 @@ export class AddPlacePage {
     lng: -73.9759827
   };
   locationIsSet: boolean = false;
+  imageUrl: string = '';
 
   constructor(private modalCtrl: ModalController,
               private loadingCtrl: LoadingController,
@@ -86,6 +87,7 @@ export class AddPlacePage {
         // If it's base64:
         // let base64Image = 'data:image/jpeg;base64,' + imageData;
         console.log(imageData);
+        this.imageUrl = imageData;
       })
       .catch((error) => {
         console.log(error);
