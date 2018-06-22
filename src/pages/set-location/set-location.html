@@ -11,7 +11,9 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <agm-map></agm-map>
+        <!-- this creates a google map on the page with the given lat/lng from -->
+        <!-- the component as the initial center of the map: -->
+        <agm-map [latitude]="location.lat" [longitude]="location.lng" [zoom]="16"></agm-map>
       </ion-col>
     </ion-row>
   </ion-grid>
