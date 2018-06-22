@@ -3,6 +3,7 @@ import { IonicPage, ModalController, LoadingController, ToastController } from '
 import { NgForm } from '@angular/forms';
 
 import { Geolocation } from '@ionic-native/geolocation';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { SetLocationPage } from '../set-location/set-location';
 import { Location } from '../../models/location';
@@ -22,7 +23,8 @@ export class AddPlacePage {
   constructor(private modalCtrl: ModalController,
               private loadingCtrl: LoadingController,
               private toastCtrl: ToastController,
-              private geolocation: Geolocation) {}
+              private geolocation: Geolocation,
+              private camera: Camera) {}
 
   onSubmit(form: NgForm) {
     console.log(form.value);
@@ -66,6 +68,27 @@ export class AddPlacePage {
         toast.present();
 
         console.log('Error getting location', error);
+      });
+  }
+
+  onTakePhoto() {
+    const options: CameraOptions = {
+      // quality: 100,
+      // destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      // mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true
+    }
+    
+    this.camera.getPicture(options)
+      .then((imageData) => {
+        // imageData is either a base64 encoded string or a file URI
+        // If it's base64:
+        // let base64Image = 'data:image/jpeg;base64,' + imageData;
+        console.log(imageData);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
 }

@@ -3,7 +3,7 @@
     <name>awesome-places-app</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.100.10:8101" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -84,4 +84,8 @@
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
+    <plugin name="cordova-plugin-camera" spec="^4.0.3" />
+    <allow-navigation href="http://192.168.100.10:8100" />
+    <allow-navigation href="http://192.168.100.10:8101" />
+    <engine name="ios" spec="4.5.4" />
 </widget>
