@@ -13,7 +13,9 @@
       <ion-col>
         <!-- this creates a google map on the page with the given lat/lng from -->
         <!-- the component as the initial center of the map: -->
-        <agm-map [latitude]="location.lat" [longitude]="location.lng" [zoom]="16"></agm-map>
+        <agm-map [latitude]="location.lat" [longitude]="location.lng" [zoom]="16" (mapClick)="onSetMarker($event)">
+          <agm-marker [latitude]="marker.lat" [longitude]="marker.lng" *ngIf="marker"></agm-marker>
+        </agm-map>
       </ion-col>
     </ion-row>
   </ion-grid>
