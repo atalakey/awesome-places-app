@@ -34,9 +34,13 @@
           </button>
         </ion-col>
       </ion-row>
-      <ion-row>
+      <ion-row *ngIf="locationIsSet">
         <ion-col>
-          <p>Selected Place ...</p>
+          <!-- this creates a google map on the page with the given lat/lng from -->
+          <!-- the component as the initial center of the map: -->
+          <agm-map [latitude]="location.lat" [longitude]="location.lng" [zoom]="16">
+            <agm-marker [latitude]="marker.lat" [longitude]="marker.lng"></agm-marker>
+          </agm-map>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -59,7 +63,7 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <button ion-button color="secondary" block type="submit" [disabled]="!f.valid">
+          <button ion-button color="secondary" block type="submit" [disabled]="!f.valid || !locationIsSet">
             Add this Place
           </button>
         </ion-col>

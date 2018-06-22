@@ -12,9 +12,12 @@ export class SetLocationPage {
   location: Location;
   marker: Location;
 
-  constructor(private navParams: NavParams
+  constructor(private navParams: NavParams,
               private viewCtrl: ViewController) {
     this.location = this.navParams.get('location');
+    if(this.navParams.get('isSet')) {
+      this.marker = this.location;
+    }
   }
 
   onSetMarker(event: any) {
