@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Camera } from '@ionic-native/camera';
 import { File } from '@ionic-native/file';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -30,7 +31,8 @@ import { PlacesService } from '../services/places';
     IonicModule.forRoot(MyApp),
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_KEY'
-    })
+    }),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
