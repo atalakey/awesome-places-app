@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { Camera } from '@ionic-native/camera';
+import { File } from '@ionic-native/file';
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -45,6 +46,7 @@ import { PlacesService } from '../services/places';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Geolocation,
     Camera,
+    File,
     PlacesService
   ]
 })
